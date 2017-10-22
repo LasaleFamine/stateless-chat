@@ -2,6 +2,13 @@
 	const io = window.io;
 	const socket = io();
 
+	const notificationSound = type => {
+		const audio = new Audio(
+			type === 'user' ?	'/static/sounds/new-user.mp3' : '/static/sounds/notification.mp3'
+		);
+		audio.play();
+	};
+
 	const appendMessage = msg => {
 		const main = document.getElementById('main');
 		const messagesBox = document.getElementById('messages');
@@ -38,9 +45,13 @@
 		socket.emit('chatMessage', value);
 	});
 
-	socket.on('chatMessage', msg => appendMessage(msg));
+	socket.on('chatMessage', msg => {
+		appendMessage(msg);
+		notificationSound('message');
+	});
 	socket.on('connectedUser', ({connectedUsers}) => {
 		addNotification('New user connected!');
+		notificationSound('user');
 		updateCounter(connectedUsers);
 	});
 })();
