@@ -13,6 +13,10 @@ button {
 	border: 1px solid rgb(21, 86, 182);
 }
 
+a {
+	color: #111;
+}
+
 .container {
 	position: relative;
   display: grid;
@@ -49,7 +53,19 @@ header {
 	padding: 0 20px;
 	background-color: #F44336;
 	color: #FFF;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto auto;
 }
+
+header .small {
+	font-size: 10px;
+}
+
+header h5 {
+	text-align: right;
+}
+
 
 main {
 	grid-area: content;

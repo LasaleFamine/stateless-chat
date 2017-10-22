@@ -21,6 +21,11 @@
 		setTimeout(() => alertContainer.classList.remove('show'), 3000);
 	};
 
+	const updateCounter = users => {
+		const count = document.getElementById('counter');
+		count.textContent = users.length;
+	};
+
 	const form = document.getElementById('sendForm');
 	form.addEventListener('submit', e => {
 		e.preventDefault();
@@ -34,5 +39,8 @@
 	});
 
 	socket.on('chatMessage', msg => appendMessage(msg));
-	socket.on('connectedUser', () => addNotification('New user connected!'));
+	socket.on('connectedUser', ({connectedUsers}) => {
+		addNotification('New user connected!');
+		updateCounter(connectedUsers);
+	});
 })();

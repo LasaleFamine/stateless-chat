@@ -23,7 +23,8 @@ const io = require('socket.io')(server.listener);
 
 io.on('connection', socket => {
 	console.log('a user connected');
-	socket.broadcast.emit('connectedUser');
+	const connectedUsers = Object.keys(io.sockets.sockets);
+	socket.broadcast.emit('connectedUser', {connectedUsers});
 
 	socket.on('disconnect', () => {
 		console.log('user disconnected');
