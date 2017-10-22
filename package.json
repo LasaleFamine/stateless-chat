@@ -1,0 +1,52 @@
+{
+	"name": "stateless-chat",
+	"version": "0.0.0",
+	"description": "Simple stateless chat built with Socket.io and HapiJs",
+	"license": "MIT",
+	"repository": "LasaleFamine/stateless-chat",
+	"bugs": {
+		"url": "https://github.com/LasaleFamine/stateless-chat/issues",
+		"email": "info@godev.space"
+	},
+	"homepage": "https://github.com/LasaleFamine/stateless-chat",
+	"author": {
+		"name": "LasaleFamine",
+		"email": "info@godev.space",
+		"url": "godev.space"
+	},
+	"engines": {
+		"node": ">=6"
+	},
+	"scripts": {
+		"start": "node src",
+		"test": "xo"
+	},
+	"files": [
+		"src"
+	],
+	"keywords": [
+		""
+	],
+	"dependencies": {
+		"hapi": "16.6.2",
+		"inert": "4.2.1",
+		"socket.io": "2.0.3"
+	},
+	"devDependencies": {
+		"xo": "0.18.2"
+	},
+	"xo": {
+		"envs": ["node", "browser"],
+		"ignores": ["src/client/static/vendor/*"],
+		"rules": {
+			"max-len": [
+				"error",
+				{
+					"code": 80,
+					"ignoreUrls": true
+				}
+			],
+			"capitalized-comments": "off"
+		}
+	}
+}
